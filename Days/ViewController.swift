@@ -12,17 +12,27 @@ class EventListCell: UITableViewCell {
         didSet {
             let format = DateFormatter.dateFormat(fromTemplate: "dMMMMyyyy", options: 0, locale: Locale.current)!
             let formatter = DateFormatter()
+            let dayCount = event.dayCount()
             
             formatter.dateFormat = format
             
             titleLabel.text = event.title
             dateLabel.text = formatter.string(from: event.date)
             iconView.image = UIImage(named: "icon_\(event.icon)")
+            
+            if dayCount == 0 {
+                dayCountLabel.text = "Today"
+            } else if dayCount < 0 {
+                dayCountLabel.text = "D-\(abs(dayCount))"
+            } else {
+                dayCountLabel.text = "D+\(dayCount)"
+            }
         }
     }
     
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var dateLabel: UILabel!
+    @IBOutlet weak private var dayCountLabel: UILabel!
     @IBOutlet weak private var iconView: UIImageView!
 }
 
@@ -37,7 +47,7 @@ enum EventEditMode {
 }
 
 protocol EventEditorViewControllerDelegate: AnyObject {
-    func eventEditorViewController(_ controller: EventEditorViewController, finishEditing event: Event, mode: EventEditMode)
+    func eventEditorViewController(_ controller: EventEditorViewController, finishEditing event: Event, mode: EventEditMode, widget: Bool)
     func eventEditorViewControllerDidCancel(_ controller: EventEditorViewController)
 }
 
@@ -50,12 +60,14 @@ class EventEditorViewController: UITableViewController {
     @IBOutlet weak private var iconButton: UIButton!
     @IBOutlet weak private var titleField: UITextField!
     @IBOutlet weak private var datePicker: UIDatePicker!
+    @IBOutlet weak private var widgetSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.iconButton.setImage(UIImage(named: "icon_\(event.icon)"), for: .normal)
         self.titleField.text = event.title
-        datePicker.date = event.date
+        self.widgetSwitch.isOn = UserDefaults.standard.double(forKey: "widget") == event.id
+        self.datePicker.date = event.date
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -82,7 +94,7 @@ class EventEditorViewController: UITableViewController {
     
     @IBAction func save() {
         event.title = titleField.text ?? ""
-        delegate?.eventEditorViewController(self, finishEditing: event, mode: mode)
+        delegate?.eventEditorViewController(self, finishEditing: event, mode: mode, widget: widgetSwitch.isOn)
     }
 }
 
@@ -165,7 +177,7 @@ extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension EventListViewController: EventEditorViewControllerDelegate {
-    func eventEditorViewController(_ controller: EventEditorViewController, finishEditing event: Event, mode: EventEditMode) {
+    func eventEditorViewController(_ controller: EventEditorViewController, finishEditing event: Event, mode: EventEditMode, widget: Bool) {
         if mode == .add {
             let count = self.storage.list().count
             self.storage.add(event)
@@ -178,6 +190,17 @@ extension EventListViewController: EventEditorViewControllerDelegate {
             self.storage.update(event)
             self.tableView.reloadData()
         }
+        
+        let currentWidgetId = UserDefaults.standard.double(forKey: "widget")
+        
+        if widget == false {
+            if currentWidgetId == event.id {
+                UserDefaults.standard.removeObject(forKey: "widget")
+            }
+        } else {
+            UserDefaults.standard.setValue(event.id, forKey: "widget")
+        }
+        
         controller.dismiss(animated: true, completion: nil)
     }
     

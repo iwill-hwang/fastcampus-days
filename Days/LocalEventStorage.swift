@@ -53,4 +53,8 @@ final class LocalEventStorage: EventStorage {
     func list() -> [Event] {
         (defaults.object(forKey: key) as? [[String: Any]] ?? []).map{Event(with: $0)}
     }
+    
+    func find(by id: Double) -> Event? {
+        return self.list().first(where: {$0.id == id})
+    }
 }
