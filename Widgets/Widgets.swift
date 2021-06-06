@@ -49,22 +49,21 @@ struct WidgetsEntryView : View {
     var entry: Provider.Entry
     
     var event: Event? {
-        Event(icon: 1, title: "Sample", date: Date(timeIntervalSinceNow: 10000000))
+        Event(icon: 1, title: "Birthday", date: Date(timeIntervalSinceNow: 10000000))
     }
     
     var body: some View {
         if let event = event {
             VStack {
-                Spacer()
+                Spacer().frame(height: 20)
                 
                 HStack {
-                    Spacer().frame(height: 15)
-                    Image("icon_\(event.icon)").resizable().frame(width: 50, height: 50)
+                    Spacer()
+                    Image("icon_\(event.icon)").resizable().frame(width: 40, height: 40)
                     Spacer().frame(width: 15)
                 }
                 
                 Spacer()
-                
                 VStack(alignment: .leading) {
                     if event.dayCount() == 0 {
                         Text("Today").font(.headline)
@@ -72,8 +71,11 @@ struct WidgetsEntryView : View {
                         let prefix = event.dayCount() > 0 ? "D+" : "D-"
                         Text("\(prefix)\(abs(event.dayCount()))").font(.system(size: 20, weight: .bold))
                     }
-                    Text(event.date, style: .date).font(.system(size: 10, weight: .bold)).foregroundColor(.gray).frame(maxWidth:. infinity, alignment: .leading)
-                }.padding(20)
+                    Spacer().frame(height: 5)
+                    Text(event.title).font(.system(size: 12, weight: .bold)).frame(maxWidth:. infinity, alignment: .leading)
+                    Text(event.date, style: .date).font(.system(size: 10, weight: .light)).foregroundColor(.gray).frame(maxWidth:. infinity, alignment: .leading)
+                }.padding(.leading, 20)
+                .padding(.bottom, 20)
             }
         } else {
             Text("No Event")
@@ -96,7 +98,7 @@ struct Widgets: Widget {
 
 struct Widgets_Previews: PreviewProvider {
     static var previews: some View {
-        WidgetsEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), event: Event(icon: 1, title: "Sample", date: Date(timeIntervalSinceNow: 10000000))))
+        WidgetsEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), event: Event(icon: 1, title: "Birthday", date: Date(timeIntervalSinceNow: 10000000))))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
