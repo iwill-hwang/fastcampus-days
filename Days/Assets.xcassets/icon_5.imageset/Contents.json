@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "vacation.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon_5.png",
+      "filename" : "vacation@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "vacation@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

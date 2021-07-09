@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "mybirth.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon_4.png",
+      "filename" : "mybirth@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "mybirth@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

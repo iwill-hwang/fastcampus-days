@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "anniversary.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon_1.png",
+      "filename" : "anniversary@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "anniversary@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
