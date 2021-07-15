@@ -8,7 +8,7 @@
 import Foundation
 
 struct Event: Equatable {
-    let id: TimeInterval
+    let id: Double
     var icon: Int
     var title: String
     var date: Date

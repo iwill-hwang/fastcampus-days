@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D82C2A9F26664DB000B7EC64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C2A9E26664DB000B7EC64 /* AppDelegate.swift */; };
 		D82C2AA126664DB000B7EC64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C2AA026664DB000B7EC64 /* SceneDelegate.swift */; };
-		D82C2AA326664DB000B7EC64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C2AA226664DB000B7EC64 /* ViewController.swift */; };
+		D82C2AA326664DB000B7EC64 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C2AA226664DB000B7EC64 /* EventListViewController.swift */; };
 		D82C2AA626664DB000B7EC64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82C2AA426664DB000B7EC64 /* Main.storyboard */; };
 		D82C2AA826664DB100B7EC64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D82C2AA726664DB100B7EC64 /* Assets.xcassets */; };
 		D82C2AAB26664DB100B7EC64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82C2AA926664DB100B7EC64 /* LaunchScreen.storyboard */; };
@@ -30,6 +30,7 @@
 		D8E1AFCA266C85E500038620 /* EventStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C2AD026664E4600B7EC64 /* EventStorage.swift */; };
 		D8E1AFCB266C85EA00038620 /* LocalEventStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C2AD226664ECD00B7EC64 /* LocalEventStorage.swift */; };
 		D8E1AFCD266C877900038620 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D82C2AA726664DB100B7EC64 /* Assets.xcassets */; };
+		D8F0BD3A269EB137004E55AD /* EventEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F0BD39269EB137004E55AD /* EventEditorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +75,7 @@
 		D82C2A9B26664DB000B7EC64 /* Days.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Days.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D82C2A9E26664DB000B7EC64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D82C2AA026664DB000B7EC64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D82C2AA226664DB000B7EC64 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D82C2AA226664DB000B7EC64 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		D82C2AA526664DB000B7EC64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D82C2AA726664DB100B7EC64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D82C2AAA26664DB100B7EC64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 		D8E1AFBC266C857C00038620 /* Widgets.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Widgets.intentdefinition; sourceTree = "<group>"; };
 		D8E1AFBD266C857E00038620 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8E1AFBF266C857E00038620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8F0BD39269EB137004E55AD /* EventEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEditorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,11 +165,12 @@
 				D82C2AAC26664DB100B7EC64 /* Info.plist */,
 				D82C2A9E26664DB000B7EC64 /* AppDelegate.swift */,
 				D82C2ACE26664DE300B7EC64 /* Event.swift */,
+				D8F0BD39269EB137004E55AD /* EventEditorViewController.swift */,
+				D82C2AA226664DB000B7EC64 /* EventListViewController.swift */,
 				D82C2AD026664E4600B7EC64 /* EventStorage.swift */,
 				D85C5A3F26678D540023D740 /* IconPickerViewController.swift */,
 				D82C2AD226664ECD00B7EC64 /* LocalEventStorage.swift */,
 				D82C2AA026664DB000B7EC64 /* SceneDelegate.swift */,
-				D82C2AA226664DB000B7EC64 /* ViewController.swift */,
 				D82C2AA726664DB100B7EC64 /* Assets.xcassets */,
 				D82C2AA926664DB100B7EC64 /* LaunchScreen.storyboard */,
 				D82C2AA426664DB000B7EC64 /* Main.storyboard */,
@@ -379,8 +382,9 @@
 				D82C2AD326664ECD00B7EC64 /* LocalEventStorage.swift in Sources */,
 				D82C2ACF26664DE300B7EC64 /* Event.swift in Sources */,
 				D82C2AD126664E4600B7EC64 /* EventStorage.swift in Sources */,
-				D82C2AA326664DB000B7EC64 /* ViewController.swift in Sources */,
+				D82C2AA326664DB000B7EC64 /* EventListViewController.swift in Sources */,
 				D85C5A4026678D540023D740 /* IconPickerViewController.swift in Sources */,
+				D8F0BD3A269EB137004E55AD /* EventEditorViewController.swift in Sources */,
 				D82C2A9F26664DB000B7EC64 /* AppDelegate.swift in Sources */,
 				D82C2AA126664DB000B7EC64 /* SceneDelegate.swift in Sources */,
 			);
@@ -578,13 +582,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Days/Days.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B3YCY6CV98;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Days/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fastcampus.Days;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fastcampus.days;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -599,13 +603,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Days/Days.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B3YCY6CV98;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Days/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fastcampus.Days;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fastcampus.days;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -709,7 +713,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fastcampus.Days.Widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fastcampus.days.Widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -730,7 +734,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fastcampus.Days.Widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fastcampus.days.Widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;

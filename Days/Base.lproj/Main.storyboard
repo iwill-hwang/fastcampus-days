@@ -125,6 +125,7 @@
         <!--Navigation Controller-->
         <scene sceneID="VDK-3F-CLf">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="07g-vB-aWH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="iIO-uQ-W7I" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="jeF-qI-Jrz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -134,7 +135,6 @@
                         <segue destination="RQL-Jz-CLt" kind="relationship" relationship="rootViewController" id="LQQ-4m-fbK"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="07g-vB-aWH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1249" y="116"/>
         </scene>
@@ -349,7 +349,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_1" width="64" height="64"/>
+        <image name="icon_1" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -20,9 +20,13 @@ extension Event {
     }
 }
 
-final class LocalEventStorage: EventStorage {
-    private let defaults = UserDefaults.standard
+struct LocalEventStorage: EventStorage {
+    private let defaults: UserDefaults
     private let key = "event_list"
+    
+    init(with defaults: UserDefaults = UserDefaults.standard) {
+        self.defaults = defaults
+    }
     
     func add(_ event: Event) {
         var list = defaults.object(forKey: key) as? [[String: Any]] ?? []

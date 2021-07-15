@@ -7,6 +7,11 @@
 
 import UIKit
 
+struct EventAction {
+    var event: Event
+    var mode: EventEditMode
+}
+
 class EventListCell: UITableViewCell {
     var event: Event! {
         didSet {
@@ -34,76 +39,6 @@ class EventListCell: UITableViewCell {
     @IBOutlet weak private var dateLabel: UILabel!
     @IBOutlet weak private var dayCountLabel: UILabel!
     @IBOutlet weak private var iconView: UIImageView!
-}
-
-struct EventAction {
-    var event: Event
-    var mode: EventEditMode
-}
-
-enum EventEditMode {
-    case add
-    case edit
-}
-
-protocol EventEditorViewControllerDelegate: AnyObject {
-    func eventEditorViewController(_ controller: EventEditorViewController, finishEditing event: Event, mode: EventEditMode, widget: Bool)
-    func eventEditorViewControllerDidCancel(_ controller: EventEditorViewController)
-}
-
-class EventEditorViewController: UITableViewController {
-    weak var delegate: EventEditorViewControllerDelegate?
-    
-    var mode: EventEditMode!
-    var event: Event!
-    
-    @IBOutlet weak private var iconButton: UIButton!
-    @IBOutlet weak private var titleField: UITextField!
-    @IBOutlet weak private var datePicker: UIDatePicker!
-    @IBOutlet weak private var widgetSwitch: UISwitch!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.iconButton.setImage(UIImage(named: "icon_\(event.icon)"), for: .normal)
-        self.titleField.text = event.title
-        self.widgetSwitch.isOn = UserDefaults.standard.double(forKey: "widget") == event.id
-        self.datePicker.date = event.date
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let identifier = segue.identifier
-        if identifier == "IconPicker" {
-            let navigationController = segue.destination as? UINavigationController
-            let iconPickerViewController = navigationController?.topViewController as? IconPickerViewController
-            
-            iconPickerViewController?.delegate = self
-        }
-    }
-    
-    @IBAction func dateChanged() {
-        self.event.date = datePicker.date
-    }
-    
-    @IBAction func presentIconPicker() {
-        performSegue(withIdentifier: "IconPicker", sender: nil)
-    }
-    
-    @IBAction func cancel() {
-        delegate?.eventEditorViewControllerDidCancel(self)
-    }
-    
-    @IBAction func save() {
-        event.title = titleField.text ?? ""
-        delegate?.eventEditorViewController(self, finishEditing: event, mode: mode, widget: widgetSwitch.isOn)
-    }
-}
-
-extension EventEditorViewController: IconPickerViewControllerDelegate {
-    func iconPickerViewController(_ controller: IconPickerViewController, didSelectIcon icon: Icon) {
-        controller.dismiss(animated: true, completion: nil)
-        self.event.icon = icon.id
-        self.iconButton.setImage(UIImage(named: "icon_\(icon.id)"), for: .normal)
-    }
 }
 
 class EventListViewController: UIViewController {

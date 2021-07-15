@@ -8,8 +8,11 @@
 import Foundation
 
 protocol EventStorage {
+    typealias Identifier = Double
+    
     func add(_ event: Event)
     func update(_ event: Event)
     func delete(_ event: Event)
     func list() -> [Event]
+    func find(by id: Identifier) -> Event?
 }
