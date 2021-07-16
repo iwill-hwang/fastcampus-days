@@ -30,10 +30,6 @@ struct Event: Equatable {
         return components.day!
     }
     
-    static func create() -> Event {
-        Event(icon: 1, title: "", date: Date())
-    }
-    
     static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.id == rhs.id
     }

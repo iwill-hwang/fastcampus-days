@@ -24,7 +24,7 @@ struct Provider: IntentTimelineProvider {
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
-        let storage = LocalEventStorage()
+        let storage = LocalEventStorage(with: UserDefaults(suiteName: "group.com.fastcampus.days")!)
         let id = UserDefaults.standard.double(forKey: "widget")
         let event = storage.find(by: id)
         
@@ -49,7 +49,9 @@ struct WidgetsEntryView : View {
     var entry: Provider.Entry
     
     var event: Event? {
-        Event(icon: 1, title: "Birthday", date: Date(timeIntervalSinceNow: 10000000))
+        guard let id = GroupDefaults.shared.widgetId else { return nil }
+        guard let event = LocalEventStorage(with: UserDefaults(suiteName: "group.com.fastcampus.days")!).find(by: id) else { return nil }
+        return event
     }
     
     var body: some View {
@@ -93,6 +95,7 @@ struct Widgets: Widget {
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
+        .supportedFamilies([.systemSmall])
     }
 }
 

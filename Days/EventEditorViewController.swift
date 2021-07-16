@@ -33,7 +33,7 @@ class EventEditorViewController: UITableViewController {
         super.viewDidLoad()
         self.iconButton.setImage(UIImage(named: "icon_\(event.icon)"), for: .normal)
         self.titleField.text = event.title
-        self.widgetSwitch.isOn = UserDefaults.standard.double(forKey: "widget") == event.id
+        self.widgetSwitch.isOn = GroupDefaults.shared.widgetId == event.id
         self.datePicker.date = event.date
     }
     
@@ -60,7 +60,16 @@ class EventEditorViewController: UITableViewController {
     }
     
     @IBAction func save() {
-        event.title = titleField.text ?? ""
+        guard let title = titleField.text else {
+            let controller = UIAlertController(title: "제목을 입력해주세요", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            controller.addAction(okAction)
+            self.present(controller, animated: true, completion: nil)
+            
+            return
+        }
+        
+        event.title = title
         delegate?.eventEditorViewController(self, finishEditing: event, mode: mode, widget: widgetSwitch.isOn)
     }
     

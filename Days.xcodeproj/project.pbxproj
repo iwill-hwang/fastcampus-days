@@ -19,6 +19,8 @@
 		D82C2AD126664E4600B7EC64 /* EventStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C2AD026664E4600B7EC64 /* EventStorage.swift */; };
 		D82C2AD326664ECD00B7EC64 /* LocalEventStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C2AD226664ECD00B7EC64 /* LocalEventStorage.swift */; };
 		D85C5A4026678D540023D740 /* IconPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C5A3F26678D540023D740 /* IconPickerViewController.swift */; };
+		D8AF834226A1106E0036E3D6 /* SharedDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AF834126A1106E0036E3D6 /* SharedDefaults.swift */; };
+		D8AF834326A112120036E3D6 /* SharedDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AF834126A1106E0036E3D6 /* SharedDefaults.swift */; };
 		D8E1AFB6266C857C00038620 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E1AFB5266C857C00038620 /* WidgetKit.framework */; };
 		D8E1AFB8266C857C00038620 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E1AFB7266C857C00038620 /* SwiftUI.framework */; };
 		D8E1AFBB266C857C00038620 /* Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1AFBA266C857C00038620 /* Widgets.swift */; };
@@ -90,7 +92,9 @@
 		D82C2AD026664E4600B7EC64 /* EventStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStorage.swift; sourceTree = "<group>"; };
 		D82C2AD226664ECD00B7EC64 /* LocalEventStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEventStorage.swift; sourceTree = "<group>"; };
 		D85C5A3F26678D540023D740 /* IconPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerViewController.swift; sourceTree = "<group>"; };
-		D8E1AFAE266C7EA800038620 /* Days.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Days.entitlements; sourceTree = "<group>"; };
+		D8AF834026A10DCE0036E3D6 /* WidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetsExtension.entitlements; sourceTree = "<group>"; };
+		D8AF834126A1106E0036E3D6 /* SharedDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDefaults.swift; sourceTree = "<group>"; };
+		D8AF834626A11AED0036E3D6 /* Days.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Days.entitlements; sourceTree = "<group>"; };
 		D8E1AFB3266C857C00038620 /* WidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E1AFB5266C857C00038620 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		D8E1AFB7266C857C00038620 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -161,17 +165,17 @@
 		D82C2A9D26664DB000B7EC64 /* Days */ = {
 			isa = PBXGroup;
 			children = (
-				D8E1AFAE266C7EA800038620 /* Days.entitlements */,
+				D8AF834626A11AED0036E3D6 /* Days.entitlements */,
 				D82C2AAC26664DB100B7EC64 /* Info.plist */,
 				D82C2A9E26664DB000B7EC64 /* AppDelegate.swift */,
-				D82C2ACE26664DE300B7EC64 /* Event.swift */,
 				D8F0BD39269EB137004E55AD /* EventEditorViewController.swift */,
 				D82C2AA226664DB000B7EC64 /* EventListViewController.swift */,
-				D82C2AD026664E4600B7EC64 /* EventStorage.swift */,
 				D85C5A3F26678D540023D740 /* IconPickerViewController.swift */,
-				D82C2AD226664ECD00B7EC64 /* LocalEventStorage.swift */,
 				D82C2AA026664DB000B7EC64 /* SceneDelegate.swift */,
+				D8AF834126A1106E0036E3D6 /* SharedDefaults.swift */,
 				D82C2AA726664DB100B7EC64 /* Assets.xcassets */,
+				D8AF834526A11A510036E3D6 /* Event */,
+				D8AF834426A11A4D0036E3D6 /* EventStorage */,
 				D82C2AA926664DB100B7EC64 /* LaunchScreen.storyboard */,
 				D82C2AA426664DB000B7EC64 /* Main.storyboard */,
 			);
@@ -196,6 +200,23 @@
 			path = DaysUITests;
 			sourceTree = "<group>";
 		};
+		D8AF834426A11A4D0036E3D6 /* EventStorage */ = {
+			isa = PBXGroup;
+			children = (
+				D82C2AD026664E4600B7EC64 /* EventStorage.swift */,
+				D82C2AD226664ECD00B7EC64 /* LocalEventStorage.swift */,
+			);
+			path = EventStorage;
+			sourceTree = "<group>";
+		};
+		D8AF834526A11A510036E3D6 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				D82C2ACE26664DE300B7EC64 /* Event.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
 		D8E1AFB4266C857C00038620 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +229,7 @@
 		D8E1AFB9266C857C00038620 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				D8AF834026A10DCE0036E3D6 /* WidgetsExtension.entitlements */,
 				D8E1AFBA266C857C00038620 /* Widgets.swift */,
 				D8E1AFBC266C857C00038620 /* Widgets.intentdefinition */,
 				D8E1AFBD266C857E00038620 /* Assets.xcassets */,
@@ -378,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8AF834226A1106E0036E3D6 /* SharedDefaults.swift in Sources */,
 				D8E1AFC1266C857E00038620 /* Widgets.intentdefinition in Sources */,
 				D82C2AD326664ECD00B7EC64 /* LocalEventStorage.swift in Sources */,
 				D82C2ACF26664DE300B7EC64 /* Event.swift in Sources */,
@@ -412,6 +435,7 @@
 			files = (
 				D8E1AFCA266C85E500038620 /* EventStorage.swift in Sources */,
 				D8E1AFC0266C857E00038620 /* Widgets.intentdefinition in Sources */,
+				D8AF834326A112120036E3D6 /* SharedDefaults.swift in Sources */,
 				D8E1AFC9266C85AB00038620 /* Event.swift in Sources */,
 				D8E1AFCB266C85EA00038620 /* LocalEventStorage.swift in Sources */,
 				D8E1AFBB266C857C00038620 /* Widgets.swift in Sources */,
@@ -582,7 +606,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Days/Days.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B3YCY6CV98;
 				INFOPLIST_FILE = Days/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -603,7 +627,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Days/Days.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B3YCY6CV98;
 				INFOPLIST_FILE = Days/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -705,6 +729,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = Widgets/WidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3YCY6CV98;
 				INFOPLIST_FILE = Widgets/Info.plist;
@@ -713,7 +738,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fastcampus.days.Widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fastcampus.days.widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -726,6 +751,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = Widgets/WidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3YCY6CV98;
 				INFOPLIST_FILE = Widgets/Info.plist;
@@ -734,7 +760,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fastcampus.days.Widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fastcampus.days.widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetKit
 
 struct EventAction {
     var event: Event
@@ -42,7 +43,7 @@ class EventListCell: UITableViewCell {
 }
 
 class EventListViewController: UIViewController {
-    private let storage: EventStorage = LocalEventStorage()
+    private let storage: EventStorage = LocalEventStorage(with: UserDefaults(suiteName: "group.com.fastcampus.days")!)
     
     @IBOutlet weak private var tableView: UITableView!
     
@@ -66,7 +67,8 @@ class EventListViewController: UIViewController {
     }
     
     @IBAction func add() {
-        let action = EventAction(event: Event.create(), mode: .add)
+        let newEvent = Event(icon: 1, title: "", date: Date())
+        let action = EventAction(event: newEvent, mode: .add)
         performSegue(withIdentifier: "EventEditor", sender: action)
     }
 }
@@ -126,16 +128,18 @@ extension EventListViewController: EventEditorViewControllerDelegate {
             self.tableView.reloadData()
         }
         
-        let currentWidgetId = UserDefaults.standard.double(forKey: "widget")
+        let defaults = GroupDefaults.shared
+        let currentWidgetId = defaults.widgetId
         
         if widget == false {
             if currentWidgetId == event.id {
-                UserDefaults.standard.removeObject(forKey: "widget")
+                defaults.widgetId = nil
             }
         } else {
-            UserDefaults.standard.setValue(event.id, forKey: "widget")
+            defaults.widgetId = event.id
         }
         
+        WidgetCenter.shared.reloadAllTimelines()
         controller.dismiss(animated: true, completion: nil)
     }
     
