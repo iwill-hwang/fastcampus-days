@@ -1,4 +1,4 @@
-## 📆🎓 Days
+## 📆 Days
 D-Day 앱인 The Day Before 의 기본적인 기능을 제작해 보는 앱. 
 
 ## 강의 내용
